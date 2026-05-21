@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>BS-Solution - Panel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f0f0f0; }
+        .navbar {
+            background: #1a1a2e;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 { color: #e94560; }
+        .navbar span { color: white; }
+        .navbar a {
+            color: #e94560;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .contenido {
+            padding: 40px;
+        }
+        h2 { color: #1a1a2e; margin-bottom: 30px; }
+        .tarjetas {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .tarjeta {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #1a1a2e;
+            transition: transform 0.2s;
+        }
+        .tarjeta:hover { transform: translateY(-5px); }
+        .tarjeta .icono { font-size: 40px; margin-bottom: 10px; }
+        .tarjeta p { color: #666; font-size: 13px; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>BS-Solution</h1>
+        <div>
+            <span>Bienvenido, {{ usuario }}</span>
+            <a href="/logout">Cerrar sesión</a>
+        </div>
+    </div>
+    <div class="contenido">
+        <h2>Panel del Administrador</h2>
+        <div class="tarjetas">
+            <a href="/moto" class="tarjeta">
+                <div class="icono">🏍️</div>
+                <strong>Registrar Moto</strong>
+                <p>Ingresa una moto nueva con su mantenimiento</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

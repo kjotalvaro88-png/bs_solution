@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>BS-Solution - Registrar Moto</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f0f0f0; }
+        .navbar {
+            background: #1a1a2e;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 { color: #e94560; }
+        .navbar a {
+            color: #e94560;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .contenido { padding: 40px; }
+        h2 { color: #1a1a2e; margin-bottom: 25px; }
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h3 { color: #e94560; margin: 20px 0 15px; }
+        h3:first-child { margin-top: 0; }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+        textarea { height: 80px; resize: vertical; }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #e94560;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover { background: #c73652; }
+        .exito {
+            background: #e0ffe0;
+            color: #27ae60;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>BS-Solution</h1>
+        <div>
+            <a href="/dashboard">Panel</a>
+            <a href="/logout">Cerrar sesión</a>
+        </div>
+    </div>
+    <div class="contenido">
+        <h2>Registrar Moto y Mantenimiento</h2>
+        <div class="card">
+            {% if mensaje %}
+            <div class="exito">{{ mensaje }}</div>
+            {% endif %}
+            <form method="POST">
+                <h3>Datos de la Moto</h3>
+                <input type="text" name="placa" placeholder="Placa (ej: ABC123)" required>
+                <input type="text" name="marca" placeholder="Marca (ej: Yamaha)" required>
+                <input type="text" name="modelo" placeholder="Modelo (ej: FZ 150)" required>
+                <input type="number" name="anio" placeholder="Año (ej: 2022)" required>
+                <h3>Mantenimiento</h3>
+                <textarea name="descripcion" placeholder="Descripción del mantenimiento realizado" required></textarea>
+                <textarea name="repuestos" placeholder="Repuestos utilizados"></textarea>
+                <input type="date" name="proximo" placeholder="Próximo mantenimiento">
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
