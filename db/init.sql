@@ -10,7 +10,9 @@ CREATE TABLE IF NOT EXISTS clientes (
     nombre VARCHAR(100) NOT NULL,
     cedula VARCHAR(20) NOT NULL UNIQUE,
     telefono VARCHAR(20),
-    correo VARCHAR(100)
+    correo VARCHAR(100),
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 
 CREATE TABLE IF NOT EXISTS motos (
@@ -34,4 +36,8 @@ CREATE TABLE IF NOT EXISTS mantenimientos (
 );
 
 INSERT INTO usuarios (usuario, contrasena, rol) VALUES
-('admin', 'admin123', 'administrador');
+('admin', 'admin123', 'administrador'),
+('cliente1', 'cliente123', 'cliente');
+
+INSERT INTO clientes (nombre, cedula, telefono, correo, usuario_id) VALUES
+('Cliente Demo', '123456789', '3001234567', 'cliente@demo.com', 2);

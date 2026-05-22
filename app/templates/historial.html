@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>BS-Solution - Historial</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f0f0f0; }
+        .navbar {
+            background: #1a1a2e;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 { color: #e94560; }
+        .navbar a {
+            color: #e94560;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .contenido { padding: 40px; }
+        h2 { color: #1a1a2e; margin-bottom: 25px; }
+        .buscar {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+        }
+        input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        button {
+            padding: 12px 25px;
+            background: #e94560;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        button:hover { background: #c73652; }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 800px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .card h3 { color: #e94560; margin-bottom: 15px; }
+        .dato { margin-bottom: 8px; color: #333; }
+        .dato span { font-weight: bold; color: #1a1a2e; }
+        .sin-resultados { color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>BS-Solution</h1>
+        <div>
+            <a href="/dashboard">Panel</a>
+            <a href="/logout">Cerrar sesión</a>
+        </div>
+    </div>
+    <div class="contenido">
+        <h2>Historial de Mantenimientos</h2>
+        <form method="POST">
+            <div class="buscar">
+                <input type="text" name="placa" placeholder="Buscar por placa (ej: ABC123)" required>
+                <button type="submit">Buscar</button>
+            </div>
+        </form>
+        {% if resultados is not none %}
+            {% if resultados %}
+                {% for r in resultados %}
+                <div class="card">
+                    <h3>🏍️ {{ r[0] }} - {{ r[1] }} {{ r[2] }} {{ r[3] }}</h3>
+                    <div class="dato">👤 Cliente: <span>{{ r[4] }}</span></div>
+                    <div class="dato">🪪 Cédula: <span>{{ r[5] }}</span></div>
+                    <div class="dato">📞 Teléfono: <span>{{ r[6] }}</span></div>
+                    <div class="dato">📅 Fecha mantenimiento: <span>{{ r[7] }}</span></div>
+                    <div class="dato">🔧 Descripción: <span>{{ r[8] }}</span></div>
+                    <div class="dato">⚙️ Repuestos: <span>{{ r[9] }}</span></div>
+                    <div class="dato">📆 Próximo mantenimiento: <span>{{ r[10] }}</span></div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="sin-resultados">No se encontraron registros para esa placa.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

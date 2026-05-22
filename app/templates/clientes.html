@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>BS-Solution - Registrar Moto</title>
+    <title>BS-Solution - Registrar Cliente</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background: #f0f0f0; }
@@ -30,16 +30,14 @@
         }
         h3 { color: #e94560; margin: 20px 0 15px; }
         h3:first-child { margin-top: 0; }
-        input, textarea, select {
+        input {
             width: 100%;
             padding: 12px;
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 14px;
-            font-family: Arial, sans-serif;
         }
-        textarea { height: 80px; resize: vertical; }
         button {
             width: 100%;
             padding: 12px;
@@ -78,7 +76,7 @@
         </div>
     </div>
     <div class="contenido">
-        <h2>Registrar Moto y Mantenimiento</h2>
+        <h2>Registrar Cliente</h2>
         <div class="card">
             {% if mensaje %}
             <div class="exito">{{ mensaje }}</div>
@@ -87,22 +85,15 @@
             <div class="error">{{ error }}</div>
             {% endif %}
             <form method="POST">
-                <h3>Cliente Propietario</h3>
-                <select name="cliente_id" required>
-                    <option value="">Selecciona un cliente</option>
-                    {% for cliente in clientes %}
-                    <option value="{{ cliente[0] }}">{{ cliente[1] }} - {{ cliente[2] }}</option>
-                    {% endfor %}
-                </select>
-                <h3>Datos de la Moto</h3>
-                <input type="text" name="placa" placeholder="Placa (ej: ABC123)" required>
-                <input type="text" name="marca" placeholder="Marca (ej: Yamaha)" required>
-                <input type="text" name="modelo" placeholder="Modelo (ej: FZ 150)" required>
-                <input type="number" name="anio" placeholder="Año (ej: 2022)" required>
-                <h3>Mantenimiento</h3>
-                <textarea name="descripcion" placeholder="Descripción del mantenimiento realizado" required></textarea>
-                <textarea name="repuestos" placeholder="Repuestos utilizados"></textarea>
-                <button type="submit">Registrar</button>
+                <h3>Datos Personales</h3>
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <input type="text" name="cedula" placeholder="Cédula" required>
+                <input type="text" name="telefono" placeholder="Teléfono">
+                <input type="email" name="correo" placeholder="Correo electrónico">
+                <h3>Acceso al Sistema</h3>
+                <input type="text" name="usuario_cliente" placeholder="Usuario para iniciar sesión" required>
+                <input type="password" name="contrasena_cliente" placeholder="Contraseña" required>
+                <button type="submit">Registrar Cliente</button>
             </form>
         </div>
     </div>

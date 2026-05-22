@@ -20,9 +20,7 @@
             text-decoration: none;
             margin-left: 20px;
         }
-        .contenido {
-            padding: 40px;
-        }
+        .contenido { padding: 40px; }
         h2 { color: #1a1a2e; margin-bottom: 30px; }
         .tarjetas {
             display: flex;
@@ -56,10 +54,20 @@
     <div class="contenido">
         <h2>Panel del Administrador</h2>
         <div class="tarjetas">
+            <a href="/clientes" class="tarjeta">
+                <div class="icono">👤</div>
+                <strong>Registrar Cliente</strong>
+                <p>Ingresa un cliente nuevo al sistema</p>
+            </a>
             <a href="/moto" class="tarjeta">
                 <div class="icono">🏍️</div>
                 <strong>Registrar Moto</strong>
                 <p>Ingresa una moto nueva con su mantenimiento</p>
+            </a>
+            <a href="/historial" class="tarjeta">
+                <div class="icono">📋</div>
+                <strong>Historial</strong>
+                <p>Consulta el historial de mantenimientos</p>
             </a>
         </div>
     </div>
